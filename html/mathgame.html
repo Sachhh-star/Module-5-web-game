@@ -1,63 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/mathgame.css" />
-    <title>Mini game</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>math game</title>
+</head>
+<body>
     <div id="game-container">
-      <!-- start screen -->
-      <div id="start-screen" class="screen-container">
-        <h1>Smart Game</h1>
-        <p>Los de sommen op en haal het hoogste level!</p>
-        <button id="start-btn">Start Game</button>
-      </div>
-
-      <!-- game screen -->
-      <div id="game-screen" class="screen">
-        <div class="status">
-          <div class="game-level">Level: <span id="level-display">1</span></div>
-          <div class="game-score">Score: <span id="score-display">0</span></div>
+        <div id="start-screen">
+            <h1>Math Game</h1>
+            <button id="start-btn">Start Game</button>
         </div>
-
-        <!-- main game -->
-        <div id="math-game-container">
+        <div id="status">
+            <p>Level <span id="display-level">1</span></p>
+            <p>Score <span id="display-score">0</span></p>
+        </div>
+        <div id="game-area">
           <span id="num1"></span>
           <span id="operator"></span>
           <span id="num2"></span>
           <span>=</span>
+          <span id="result"></span>
         </div>
-        <!-- answer -->
-        <div id="math-game-answer">
-          <input type="number" id="answer-input" placeholder="?" autofocus />
-          <button id="answer-btn">Answer</button>
-        </div>
-      </div>
-      <!-- back to index! -->
-      <div><a href="#">back</a></div>
-      <!--game over -->
-      <div id="game-over-screen" class="screen">
-        <h1>Game Over</h1>
-        <p>Helaas, dat was fout!</p>
-        <p>
-          Je hebt <span id="final-score"></span> punten gehaald op Level
-          <span id="final-level"></span>.
-        </p>
-        <button id="restart-btn">Start Game</button>
-      </div>
-      <!-- next level screen -->
-      <div id="next-level-screen" class="screen">
-        <h1>Level Up!</h1>
-        <p>
-          Goed gedaan! Je hebt level <span id="completed-level"></span> gehaald.
-        </p>
-        <button id="next-level-btn">Volgende Level</button>
-      </div>
+        <input type="number" id="answer-input" placeholder="Your answer">
+        <button id="submit-btn">Submit</button>
     </div>
-
-    <!-- game scripts -->
     <script src="/javascript/mathgame.js"></script>
-  </body>
+</body>
 </html>
