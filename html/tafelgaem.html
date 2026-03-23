@@ -7,49 +7,58 @@
     <title>Tafel game</title>
   </head>
   <body>
-    <section id="startscreen-game">
-      <h1>Tafel Game</h1>
-      <button id="start-btn">Start Game</button>
-    </section>
     <!-- tafel game -->
     <div id="tafel-container">
+      <div id="startscreen-game">
+        <h1>Tafel Game</h1>
+        <button id="start-btn">Start Game</button>
+      </div>
       <div id="tafel-status">
         <p>Level <span id="tafel-level">1</span></p>
       </div>
-      <div>
-        <span id="num-1"></span>
-        <span id="operator"> x </span>
-        <span id="num-2"></span>
-        <span>=</span>
-        <span id="answer"></span>
-      </div>
-      <div id="option-container">
-        <button id="answer-option1">
-          Option 1 <span id="answer-num1"></span>
-        </button>
-        <button id="answer-option1">
-          Option 2 <span id="answer-num2"></span>
-        </button>
-        <button id="answer-option1">
-          Option 3 <span id="answer-num3"></span>
-        </button>
-        <button id="answer-option1">
-          Option 4 <span id="answer-num4"></span>
-        </button>
-      </div>
-      <div id="answer-container">
-        <div id="timer-container">
-          <p>Time: <span id="count-down">00:30</span></p>
+      <div id="game-screen">
+        <div id="gamequestion">
+          <span id="num-1"></span>
+          <span id="operator"> x </span>
+          <span id="num-2"></span>
+          <span>=</span>
+          <span id="answer"></span>
         </div>
-        <div id="answer-btn">
-          <button id="AnswerBTN">Answer</button>
+        <div id="option-container">
+          <button id="answer-option1">
+            Option 1 <span id="answer-num1"></span>
+          </button>
+          <button id="answer-option1">
+            Option 2 <span id="answer-num2"></span>
+          </button>
+          <button id="answer-option1">
+            Option 3 <span id="answer-num3"></span>
+          </button>
+          <button id="answer-option1">
+            Option 4 <span id="answer-num4"></span>
+          </button>
         </div>
-        <div id="heart-container">
-          <p><span></span>❤️ ❤️ ❤️</p>
+        <div id="answer-container">
+          <div id="timer-container">
+            <p>Time: <span id="count-down">00:30</span></p>
+          </div>
+          <div id="answer-btn">
+            <button id="AnswerBTN">Answer</button>
+          </div>
+          <div id="heart-container">
+            <p><span></span>❤️ ❤️ ❤️</p>
+          </div>
+        </div>
+        <div id="back-display">
+          <button id="back-btn">Back <a href="#"></a></button>
         </div>
       </div>
-      <div id="back-display">
-        <button id="back-btn">Back</button>
+
+      <!-- result screen -->
+      <div id="result-screen">
+        <h2>Game Over</h2>
+        <p>Your score: <span id="final-score">0</span></p>
+        <button id="play-again-btn">Play Again</button>
       </div>
     </div>
 
