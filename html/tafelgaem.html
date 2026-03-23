@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/tafelgame.css" />
+    <title>Tafel game</title>
+  </head>
+  <body>
+    <section id="startscreen-game">
+      <h1>Tafel Game</h1>
+      <button id="start-btn">Start Game</button>
+    </section>
+    <!-- tafel game -->
+    <div id="tafel-container">
+      <div id="tafel-status">
+        <p>Level <span id="tafel-level">1</span></p>
+      </div>
+      <div>
+        <span id="num-1"></span>
+        <span id="operator"> x </span>
+        <span id="num-2"></span>
+        <span>=</span>
+        <span id="answer"></span>
+      </div>
+      <div id="option-container">
+        <button id="answer-option1">
+          Option 1 <span id="answer-num1"></span>
+        </button>
+        <button id="answer-option1">
+          Option 2 <span id="answer-num2"></span>
+        </button>
+        <button id="answer-option1">
+          Option 3 <span id="answer-num3"></span>
+        </button>
+        <button id="answer-option1">
+          Option 4 <span id="answer-num4"></span>
+        </button>
+      </div>
+      <div id="answer-container">
+        <div id="timer-container">
+          <p>Time: <span id="count-down">00:30</span></p>
+        </div>
+        <div id="answer-btn">
+          <button id="AnswerBTN">Answer</button>
+        </div>
+        <div id="heart-container">
+          <p><span></span>❤️ ❤️ ❤️</p>
+        </div>
+      </div>
+      <div id="back-display">
+        <button id="back-btn">Back</button>
+      </div>
+    </div>
+
+    <script src="/javascript/tafelgame.js"></script>
+  </body>
+</html>

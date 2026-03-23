@@ -1,30 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>math game</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/mathgame.css" />
+    <title>math game</title>
+  </head>
+  <body>
     <div id="game-container">
-        <div id="start-screen">
-            <h1>Math Game</h1>
-            <button id="start-btn">Start Game</button>
-        </div>
-        <div id="status">
-            <p>Level <span id="display-level">1</span></p>
-            <p>Score <span id="display-score">0</span></p>
-        </div>
-        <div id="game-area">
-          <span id="num1"></span>
-          <span id="operator"></span>
-          <span id="num2"></span>
-          <span>=</span>
-          <span id="result"></span>
-        </div>
-        <input type="number" id="answer-input" placeholder="Your answer">
-        <button id="submit-btn">Submit</button>
+      <div id="start-screen">
+        <h1>Math Game</h1>
+        <button id="start-btn">Start Game</button>
+      </div>
+      <div id="status">
+        <p>Level <span id="display-level">1</span></p>
+        <p>Score <span id="display-score">0</span></p>
+      </div>
+      <div id="game-area">
+        <span id="num1"></span>
+        <span id="operator"></span>
+        <span id="num2"></span>
+        <span>=</span>
+        <span id="result"></span>
+      </div>
+      <input type="number" id="answer-input" placeholder="Your answer" />
+      <button id="submit-btn">Submit</button>
+      <div id="display-timer">
+        <p>Time: <span id="timer">00:30</span></p>
+      </div>
+      <div id="display-back">
+        <button id="back-btn">Back to Menu</button>
+      </div>
     </div>
     <script src="/javascript/mathgame.js"></script>
-</body>
+  </body>
 </html>
