@@ -39,7 +39,7 @@ const pointsToLevelUp = 50;
 let correctAnswer = 0;
 let isAnimating = false;
 
-// Initialize Event Listeners
+// event listeners
 btns.start.addEventListener('click', startGame);
 btns.restart.addEventListener('click', startGame);
 btns.back.addEventListener('click', backToMenu);
@@ -142,15 +142,12 @@ function loseGame() {
     ui.endMessage.textContent = 'You are out of lives...';
 }
 
-// Generate question based on level
 function generateQuestion() {
     isAnimating = false;
     ui.feedback.classList.remove('show', 'success', 'error');
     
-    // Level difficulty settings
-    // Level 1: tafels van 1 t/m 5
     let minFactor = 1;
-    let maxTafel = 5; // right side can be up to 10 typical
+    let maxTafel = 5; 
     
     if (level === 1) { maxTafel = 5; }
     else if (level === 2) { maxTafel = 7; }
@@ -163,11 +160,9 @@ function generateQuestion() {
     else if (level === 9) { minFactor = 8; maxTafel = 20; }
     else if (level >= 10) { minFactor = 10; maxTafel = 25; }
     
-    // Random numbers for multiplication
     const num1 = getRandomInt(minFactor, maxTafel);
     const num2 = getRandomInt(1, maxTafel > 10 ? 10 : maxTafel);
     
-    // Randomize the order (e.g. 5 x 4 vs 4 x 5)
     if (Math.random() > 0.5) {
         correctAnswer = num1 * num2;
         ui.question.textContent = `${num1} × ${num2} = ?`;
@@ -181,46 +176,38 @@ function generateQuestion() {
 }
 
 function generateAnswers(num1, num2) {
-    // Create 1 correct and 3 fakes
     let answers = [correctAnswer];
     
     while(answers.length < 4) {
         let wrongAnswer;
         
-        // Strategy for fake answers to make them "close"
         const strategy = getRandomInt(1, 3);
         
         if (strategy === 1) {
-            // Off by a little bit (addition error)
             let offset = getRandomInt(1, 4) * (Math.random() > 0.5 ? 1 : -1);
             wrongAnswer = correctAnswer + offset;
         } else if (strategy === 2) {
-            // Off by multiplying one of the factors slightly wrong (table error)
             let fakeNum = (Math.random() > 0.5 ? num1 : num2) + (Math.random() > 0.5 ? 1 : -1);
             if (fakeNum < 1) fakeNum = 2;
             wrongAnswer = (Math.random() > 0.5 ? num1 : num2) * fakeNum;
         } else {
-            // Off by another somewhat random amount
             wrongAnswer = correctAnswer + (Math.random() > 0.5 ? 10 : -10);
         }
         
-        // Ensure no negatives, zeroes, or duplicates
         if (wrongAnswer > 0 && !answers.includes(wrongAnswer)) {
             answers.push(wrongAnswer);
         }
     }
     
-    // Shuffle the answers array
     answers = answers.sort(() => Math.random() - 0.5);
     
-    // Update existing buttons in HTML
     const answerBtns = ui.answersContainer.querySelectorAll('.answer-btn');
     answers.forEach((ans, index) => {
         if (index < answerBtns.length) {
             let btn = answerBtns[index];
-            // Clone to remove old event listeners
+
             const newBtn = btn.cloneNode(true);
-            newBtn.className = 'answer-btn'; // reset styling classes
+            newBtn.className = 'answer-btn'; 
             newBtn.style.visibility = 'visible';
             newBtn.disabled = false;
             newBtn.textContent = ans;
@@ -233,22 +220,20 @@ function generateAnswers(num1, num2) {
 function checkAnswer(selectedAnswer, btnElement) {
     if (isAnimating) return;
     isAnimating = true;
-    clearInterval(timerInterval); // Stop timer
+    clearInterval(timerInterval); 
     
     const isCorrect = (selectedAnswer === correctAnswer);
     
-    // Disable all buttons to prevent multiple clicks
+
     const allBtns = ui.answersContainer.querySelectorAll('.answer-btn');
     allBtns.forEach(b => {
         b.disabled = true;
         if (parseInt(b.textContent) === correctAnswer) {
-            b.classList.add('correct'); // Highlight correct answer always
+            b.classList.add('correct'); 
         }
     });
 
     if (isCorrect) {
-        // Score continues building up across levels
-        // E.g. score reaches 50 -> level 2, reaches 100 -> level 3
         score += pointsPerCorrect; 
         ui.feedback.textContent = 'Correct answer! +10 points';
         ui.feedback.className = 'feedback show success';
