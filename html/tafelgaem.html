@@ -8,57 +8,57 @@
   </head>
   <body>
     <div class="game-container">
-      <!-- start screen -->
-      <div id="start-screen" class="screen-active">
-        <h1 class="title">Tafel toren</h1>
-        <p>Quick Math Game</p>
+      <!-- start Screen -->
+      <div id="start-screen" class="screen active">
+        <h1 class="logo">Times Table Tower</h1>
+        <p>Test your math skills up to level 10!</p>
         <button id="start-btn" class="main-btn">Start Game</button>
       </div>
 
-      <!-- game screen -->
-      <div id="game-screen" class="screen-hidden">
-        <button is="back-btn" class="icon-back">⬅ Back</button>
-        <!-- status -->
-        <div class="status">
-          <div class="level-status">
-            Level <span id="level-display">1</span>
-          </div>
-          <div class="lives-status"><span id="lives-display"></span>❤️❤️❤️</div>
-          <div class="score-status">
-            Score: <span id="score-status">0</span>
+      <!-- game Screen -->
+      <div id="game-screen" class="screen hidden">
+        <button id="back-btn" class="icon-btn">⬅ Back</button>
+        <div class="hud">
+          <div class="level-badge">Level <span id="level-display">1</span></div>
+          <div class="lives-badge"><span id="lives-display">❤️❤️❤️</span></div>
+          <div class="score-badge">
+            Score: <span id="score-display">0</span>
           </div>
         </div>
 
-        <!-- timer -->
         <div class="timer-container">
-          <div class="timer=text">
+          <div class="timer-text">
             Time: <span id="timer-display">30</span>s
           </div>
-          <div class="timer=bar-bg">
+          <div class="timer-bar-bg">
             <div id="timer-bar" class="timer-bar"></div>
           </div>
         </div>
 
-        <!-- question -->
         <div class="question-container">
           <h2 id="question-text">3 × 4 = ?</h2>
         </div>
 
-        <div class="answer-grid" id="answer-container">
-          <!-- js -->
+        <div class="answers-grid" id="answers-container">
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
         </div>
-        <!-- feedback-msg -->
-        <div id="feedback-msg" class="feedback">You're doing great!</div>
+
+        <div id="feedback-msg" class="feedback">Good job!</div>
       </div>
 
-      <!-- end screen -->
-       <div id="end-screen" class="screen-hidden">
-        <h1 id="end-title" class="title">Great!</h1>
-        <p id="end-message">You lose!</p>
-        <p id="final-score">Final Score: <span id="final-score-display">0</span></p>
-        <button id="restart-btn" class="main-btn">Try again!</button>
-        <button id="menu-btn" class="secondary-btn">Head menu</button>
-       </div>
+      <!-- end Screen -->
+      <div id="end-screen" class="screen hidden">
+        <h1 id="end-title" class="logo">Awesome!</h1>
+        <p id="end-message">You have conquered the Times Table Tower!</p>
+        <p class="final-score">
+          Final Score: <span id="final-score-display">0</span>
+        </p>
+        <button id="restart-btn" class="main-btn">Play Again</button>
+        <button id="menu-btn" class="secondary-btn">Main Menu</button>
+      </div>
     </div>
 
     <script src="/javascript/tafelgame.js"></script>
