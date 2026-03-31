@@ -41,10 +41,10 @@ function startGame() {
 function generateQuestion() {
     // Increase difficulty based on the level
     let maxNumber = 20 * level;
-    num1.innerHTML = Math.floor(Math.random() * maxNumber);
-    num2.innerHTML = Math.floor(Math.random() * maxNumber);
+    num1.innerHTML = Math.round(Math.random() * maxNumber);
+    num2.innerHTML = Math.round(Math.random() * maxNumber);
     let operators = ["+", "-", "*", "/"];
-    operator.innerHTML = operators[Math.floor(Math.random() * operators.length)];
+    operator.innerHTML = operators[Math.round(Math.random() * operators.length)];
     
     clearInterval(timerInterval);
     timeSecounds = 30;

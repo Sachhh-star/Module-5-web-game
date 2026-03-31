@@ -8,11 +8,53 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
   align-items: center;
   justify-content: center;
+  /* display: flex; */
   min-height: 100vh;
 }
+/* menu-bar */
+#menu-bar {
+  display: flex;
+  padding: 25px;
+  background-color: aliceblue;
+  padding: 0 5px;
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  background-color: rgba(231, 229, 229, 0.434);
+  border-radius: 0 0 15px 15px;
+  font-family: "Bungee", sans-serif;
+  font-weight: 250;
+  font-style: normal;
+  border: 0 solid;
+  padding: 2.5px;
+  box-shadow: 1px 4px rgba(101, 101, 100, 0.39);
+}
+.menuDisplay {
+  text-align: right;
+  flex: 1;
+}
+.menuDisplay ul {
+  list-style: none;
+  display: inline-block;
+  margin-right: 20px;
+  padding: 13px;
+}
+.menuDisplay ul li {
+  border-radius: 5px;
+  padding: 10px;
+}
+.menuDisplay a {
+  text-decoration: none;
+}
+.menuDisplay ul li a:hover {
+  background-color: rgba(180, 180, 179, 0.274);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+/* main */
 
 .container h1 {
   font-family: "Bungee", sans-serif;
@@ -26,6 +68,9 @@ body {
   width: 300px;
   border: 50px;
   border-radius: 20px 50px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
   background-color: rgba(240, 248, 255, 0.119);
 }
 
@@ -36,7 +81,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  margin-right: 300px;
   padding: 100px;
   width: 60px;
   background: linear-gradient(
@@ -65,7 +110,11 @@ body {
   margin-top: 20px;
   font-family: "Bungee", sans-serif;
 }
-
+.styletafelgame {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
 /* math game */
 #mathgame {
   display: flex;
@@ -73,7 +122,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  margin-left: 300px;
   padding: 100px;
   width: 60px;
   background: linear-gradient(
@@ -104,4 +153,9 @@ body {
   border-radius: 30px;
   margin-top: 20px;
   font-family: "Bungee", sans-serif;
+}
+.stylemathgame {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
 }
