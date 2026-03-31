@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* body */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(/img/main-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* start screen */
+#start-screen {
+  text-align: center;
+  border-radius: 15px;
+  width: 300px;
+  padding: 50px;
+  margin: 0 auto;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgb(117, 102, 173) 0%,
+    rgb(108, 108, 192) 35%,
+    rgb(119, 219, 239) 100%
+  );
+  box-shadow: 6px 7px rgba(27, 27, 27, 0.301);
+}
+
+/* start game btn */
+#start-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
+  font-family: "Bungee", sans-serif;
+}
+.main-btn:hover {
+  box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
+  transform: translateY(4px);
+}
+#start-screen h1 {
+  font-family: "Bungee", sans-serif;
+  text-shadow: 2px 4px rgba(255, 250, 250, 0.584);
+}
+#start-screen p {
+  font-family: "Bungee", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.274);
+  margin-top: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+}

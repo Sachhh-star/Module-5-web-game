@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(/img/main-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container h1 {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 4px 0 3px seashell;
+}
+
+.container {
+  padding: 20px;
+  width: 300px;
+  border: 50px;
+  border-radius: 20px 50px;
+  background-color: rgba(240, 248, 255, 0.119);
+}
+
+/* tafel game */
+#tafelgame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 100px;
+  width: 60px;
+  background: linear-gradient(
+    90deg,
+    rgba(74, 155, 186, 1) 0%,
+    rgb(161, 255, 173) 72%,
+    rgba(255, 251, 191, 1) 100%
+  );
+  height: 60px;
+  border-radius: 50%;
+  /* display: inline-block; */
+  box-shadow: 2px 2px 5px 2px rgba(56, 59, 59, 0.518);
+  border: none;
+}
+#tafelgame h1 {
+  font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* tefel game buttom */
+#start-tafelgame {
+  border: none;
+  padding: 20px;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-family: "Bungee", sans-serif;
+}
+
+/* math game */
+#mathgame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 100px;
+  width: 60px;
+  background: linear-gradient(
+    90deg,
+    rgba(74, 155, 186, 1) 0%,
+    rgb(161, 255, 173) 72%,
+    rgba(255, 251, 191, 1) 100%
+  );
+  height: 60px;
+  border-radius: 50%;
+  /* display: inline-block; */
+  box-shadow: 2px 2px 5px 2px rgba(56, 59, 59, 0.518);
+  border: none;
+}
+#mathgame h1 {
+  font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#start-tafelgame:hover {
+  box-shadow: 0 0 3px 3px rgba(78, 93, 105, 0.521);
+  transform: translateY(2px);
+}
+/* math game buttom */
+#start-mathgame {
+  border: none;
+  padding: 20px;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-family: "Bungee", sans-serif;
+}
