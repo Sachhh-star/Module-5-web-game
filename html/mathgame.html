@@ -7,7 +7,7 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/mathgame.css" />
+    <link rel="stylesheet" href="../css/mathgame.css" />
     <title>math game</title>
   </head>
   <body>
@@ -15,8 +15,10 @@
       <div id="start-screen">
         <h1>Math Game</h1>
         <button id="start-btn" class="start-mathgameBTN">Start Game</button>
+        <br>
+        <button onclick="window.location.href='index.html'" class="start-mathgameBTN">Back to menu</button>
       </div>
-      <div id="main-game" class="maingameArea">
+      <div id="main-game" class="maingameArea" style="display: none;">
         <div id="status" class="status-container">
           <p>Level <span id="display-level">1</span></p>
           <p>Score <span id="display-score">0</span></p>
@@ -31,6 +33,7 @@
         <div id="display-answers" class="answerDisplay">
           <input type="number" id="answer-input" placeholder="Your answer" />
           <button id="submit-btn">Submit</button>
+          <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-family: 'Bungee', sans-serif; font-size: 1.2rem; min-height: 25px;"></div>
         </div>
         <div id="display-timer">
           <p>Time: <span id="timer">00:30</span></p>
@@ -40,6 +43,14 @@
         </div>
       </div>
     </div>
-    <script src="/javascript/mathgame.js"></script>
+    <script src="../javascript/mathgame.js"></script>
+    <script>
+      document.getElementById('start-btn').addEventListener('click', function() {
+        document.getElementById('main-game').style.display = 'block';
+      });
+      document.getElementById('back-btn').addEventListener('click', function() {
+        window.location.href = 'index.html';
+      });
+    </script>
   </body>
 </html>

@@ -8,6 +8,7 @@ let displayscore = document.getElementById("display-score");
 let gamearea = document.getElementById("game-area");
 let displaytimer = document.getElementById("display-timer");
 let displayback = document.getElementById("display-back");
+let feedbackMsg = document.getElementById("feedback-msg");
 
 
 
@@ -38,13 +39,41 @@ function startGame() {
 }
 
 // generate question
+let currentCorrectAnswer;
+
 function generateQuestion() {
     // Increase difficulty based on the level
-    let maxNumber = 20 * level;
-    num1.innerHTML = Math.round(Math.random() * maxNumber);
-    num2.innerHTML = Math.round(Math.random() * maxNumber);
+    let maxNumber = 10 + (10 * level);
+    
     let operators = ["+", "-", "*", "/"];
-    operator.innerHTML = operators[Math.round(Math.random() * operators.length)];
+    let op = operators[Math.ceil(Math.random() * operators.length)];
+    
+    let n1 = Math.ceil(Math.random() * maxNumber) + 1; // 1 to maxNumber
+    let n2 = Math.ceil(Math.random() * maxNumber) + 1;
+    
+    if (op === "-") {
+        if (n1 < n2) {
+            let temp = n1;
+            n1 = n2;
+            n2 = temp;
+        }
+    } else if (op === "/") {
+        // Ensure clean division
+        let ans = Math.ceil(Math.random() * (maxNumber / 2)) + 1;
+        n1 = ans * n2;
+    }
+    
+    num1.innerHTML = n1;
+    num2.innerHTML = n2;
+    operator.innerHTML = op;
+    
+    // Pre-calculate correct answer
+    switch (op) {
+        case "+": currentCorrectAnswer = n1 + n2; break;
+        case "-": currentCorrectAnswer = n1 - n2; break;
+        case "*": currentCorrectAnswer = n1 * n2; break;
+        case "/": currentCorrectAnswer = n1 / n2; break;
+    }
     
     clearInterval(timerInterval);
     timeSecounds = 30;
@@ -53,41 +82,49 @@ function generateQuestion() {
 }
 
 submitBtn.addEventListener("click", checkAnswer);
+answerInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        checkAnswer();
+    }
+});
+
+let isChecking = false;
 
 // check answer
 function checkAnswer() {    
+    if (isChecking) return;
+    if (answerInput.value.trim() === "") return;
+    
+    isChecking = true;
+    clearInterval(timerInterval);
     let userAnswer = parseInt(answerInput.value);
-    let correctAnswer;
-    switch (operator.innerHTML) {
-        case "+":
-            correctAnswer = parseInt(num1.innerHTML) + parseInt(num2.innerHTML);
-            break;
-        case "-":
-            correctAnswer = parseInt(num1.innerHTML) - parseInt(num2.innerHTML);
-            break;
-        case "*":
-            correctAnswer = parseInt(num1.innerHTML) * parseInt(num2.innerHTML);
-            break;
-        case "/":
-            correctAnswer = parseInt(num1.innerHTML) / parseInt(num2.innerHTML);
-            break;
-    }
-    if (userAnswer === correctAnswer) {
-        alert("Correct!");
+    
+    if (userAnswer === currentCorrectAnswer) {
+        feedbackMsg.innerHTML = "Correct! +10 points";
+        feedbackMsg.style.color = "lightgreen";
         score += 10;
         correctAnswersInLevel++;
         if (correctAnswersInLevel >= correctAnswersToLevelUp) {
             level++;
             correctAnswersInLevel = 0;
-            alert("Level Up! You are now on level " + level);
+            // Optionally notify level up
+            feedbackMsg.innerHTML = "Level Up! Welcome to level " + level;
+            feedbackMsg.style.color = "gold";
         }
     } else {
-        alert("Wrong! The correct answer is " + correctAnswer);
+        feedbackMsg.innerHTML = "Wrong! The right answer was " + currentCorrectAnswer;
+        feedbackMsg.style.color = "salmon";
     }   
     displayscore.innerHTML = score;
     displaylevel.innerHTML = level;
     answerInput.value = "";
-    generateQuestion();
+    
+    setTimeout(() => {
+        isChecking = false;
+        generateQuestion();
+        feedbackMsg.innerHTML = "";
+    }, 1500);
 }
 
 // timer function
@@ -97,24 +134,14 @@ function countdown() {
         timer.innerHTML = timeSecounds;
     } else {
         clearInterval(timerInterval);
-        let correctAnswer;
-        switch (operator.innerHTML) {
-            case "+":
-                correctAnswer = parseInt(num1.innerHTML) + parseInt(num2.innerHTML);
-                break;
-            case "-":
-                correctAnswer = parseInt(num1.innerHTML) - parseInt(num2.innerHTML);
-                break;
-            case "*":
-                correctAnswer = parseInt(num1.innerHTML) * parseInt(num2.innerHTML);
-                break;
-            case "/":
-                // Using Math.floor to match parseInt for UI answers or keeping it basic as JS handles it.
-                correctAnswer = parseInt(num1.innerHTML) / parseInt(num2.innerHTML);
-                break;
-        }
-        alert("time's up! the correct answer is " + correctAnswer);
-        generateQuestion();
+        isChecking = true;
+        feedbackMsg.innerHTML = "Time's up! The answer was " + currentCorrectAnswer;
+        feedbackMsg.style.color = "salmon";
+        setTimeout(() => {
+            isChecking = false;
+            generateQuestion();
+            feedbackMsg.innerHTML = "";
+        }, 1500);
     }
 }
 

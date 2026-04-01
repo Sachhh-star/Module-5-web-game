@@ -7,7 +7,7 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&family=Changa+One:ital@0;1&family=Varela+Round&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>game</title>
   </head>
   <body>
@@ -25,17 +25,20 @@
     <main>
       <section id="container-display" class="displayContainer">
         <div class="container">
-          <h1>Math Mini Game</h1>
+          <h1 style="font-size: 3rem; text-shadow: 3px 3px 0px rgba(255,255,255,0.5);">Mini Math Game</h1>
         </div>
-        <div id="tafelgame" class="styletafelgame">
-          <h1>Tafel Game</h1>
-          <button id="start-tafelgame">Start</button>
-        </div>
-        <div id="mathgame" class="stylemathgame">
-          <h1>Math game</h1>
-          <button id="start-mathgame">Start</button>
+        <div class="games-wrapper">
+          <a href="mathgame.html" class="game-card">
+            <h1>Math<br>Game</h1>
+            <button>Play Now</button>
+          </a>
+          <a href="tafelgaem.html" class="game-card" id="card-tafel">
+            <h1>Tafel Toren<br>Times Table</h1>
+            <button>Play Now</button>
+          </a>
         </div>
       </section>
     </main>
   </body>
 </html>
+

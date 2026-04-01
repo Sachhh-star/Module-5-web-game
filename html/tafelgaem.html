@@ -7,7 +7,7 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/tafelgame.css" />
+    <link rel="stylesheet" href="../css/tafelgame.css" />
     <title>Tafel Toren Game</title>
   </head>
   <body>
@@ -17,6 +17,13 @@
         <h1 class="logo">Times Table Tower</h1>
         <p>Test your math skills up to level 10!</p>
         <button id="start-btn" class="main-btn">Start Game</button>
+        <button
+          onclick="window.location.href = 'index.html'"
+          id="secondaryBTN"
+          class="secondary-btn"
+        >
+          Back to menu
+        </button>
       </div>
 
       <!-- game Screen -->
@@ -52,6 +59,7 @@
 
         <div id="feedback-msg" class="feedback">Good job!</div>
       </div>
+      
 
       <!-- end Screen -->
       <div id="end-screen" class="screen hidden">
@@ -65,6 +73,6 @@
       </div>
     </div>
 
-    <script src="/javascript/tafelgame.js"></script>
+    <script src="../javascript/tafelgame.js"></script>
   </body>
 </html>
