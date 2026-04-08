@@ -68,7 +68,6 @@ body {
   transform: translateY(4px);
 }
 
-
 /* main game */
 #main-game {
   border-radius: 15px;
@@ -145,11 +144,11 @@ body {
   border: none;
   background-color: aliceblue;
   border-radius: 2px;
-  padding: 15px;
+  padding: 25px;
   box-shadow: 3px 3px 2px rgba(25, 36, 38, 0.308);
 }
 #submit-btn {
-  display: flex;
+  display: inline-block;
   padding: 15px 25px;
   font-size: 15px;
   cursor: pointer;
@@ -161,18 +160,29 @@ body {
   border-radius: 15px;
   box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
   font-family: "Bungee", sans-serif;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 #display-answers {
   align-items: center;
   text-align: center;
   justify-content: center;
 }
+
+/* feedback-msg */
+#feedback-msg {
+  margin-top: 15px;
+  font-weight: bold;
+  font-family: "Bungee", sans-serif;
+  font-size: 1.2rem;
+  min-height: 25px;
+}
+
 /* timer */
 #display-timer {
   border: none;
   margin-top: 10px;
   background-color: aliceblue;
+  font-family: "Bungee", sans-serif;
   border-radius: 2px;
   padding: 15px;
   box-shadow: 3px 3px 2px rgba(25, 36, 38, 0.308);

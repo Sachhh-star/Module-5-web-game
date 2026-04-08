@@ -23,6 +23,7 @@ let operator = document.getElementById("operator");
 let num2 = document.getElementById("num2");
 let answerInput = document.getElementById("answer-input");
 let submitBtn = document.getElementById("submit-btn");
+let resultBox = document.getElementById("result");
 
 // timer variables
 const timer = document.getElementById("timer");
@@ -46,10 +47,10 @@ function generateQuestion() {
     let maxNumber = 10 + (10 * level);
     
     let operators = ["+", "-", "*", "/"];
-    let op = operators[Math.ceil(Math.random() * operators.length)];
+    let op = operators[Math.floor(Math.random() * operators.length)];
     
-    let n1 = Math.ceil(Math.random() * maxNumber) + 1; // 1 to maxNumber
-    let n2 = Math.ceil(Math.random() * maxNumber) + 1;
+    let n1 = Math.floor(Math.random() * maxNumber) + 1; // 1 to maxNumber
+    let n2 = Math.floor(Math.random() * maxNumber) + 1;
     
     if (op === "-") {
         if (n1 < n2) {
@@ -59,7 +60,7 @@ function generateQuestion() {
         }
     } else if (op === "/") {
         // Ensure clean division
-        let ans = Math.ceil(Math.random() * (maxNumber / 2)) + 1;
+        let ans = Math.floor(Math.random() * (maxNumber / 2)) + 1;
         n1 = ans * n2;
     }
     
@@ -75,6 +76,9 @@ function generateQuestion() {
         case "/": currentCorrectAnswer = n1 / n2; break;
     }
     
+    answerInput.value = "";
+    resultBox.innerHTML = "";
+
     clearInterval(timerInterval);
     timeSecounds = 30;
     timer.innerHTML = timeSecounds;
@@ -82,6 +86,11 @@ function generateQuestion() {
 }
 
 submitBtn.addEventListener("click", checkAnswer);
+
+// Update result box as user types
+answerInput.addEventListener("input", function() {
+    resultBox.innerHTML = answerInput.value;
+});
 answerInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
@@ -114,11 +123,12 @@ function checkAnswer() {
         }
     } else {
         feedbackMsg.innerHTML = "Wrong! The right answer was " + currentCorrectAnswer;
-        feedbackMsg.style.color = "salmon";
+        feedbackMsg.style.color = "white";
     }   
     displayscore.innerHTML = score;
     displaylevel.innerHTML = level;
     answerInput.value = "";
+    resultBox.innerHTML = "";
     
     setTimeout(() => {
         isChecking = false;
@@ -136,7 +146,7 @@ function countdown() {
         clearInterval(timerInterval);
         isChecking = true;
         feedbackMsg.innerHTML = "Time's up! The answer was " + currentCorrectAnswer;
-        feedbackMsg.style.color = "salmon";
+        feedbackMsg.style.color = "white";
         setTimeout(() => {
             isChecking = false;
             generateQuestion();
