@@ -11,14 +11,25 @@
     <title>math game</title>
   </head>
   <body>
+    <div class="floating-math">
+      <span class="symbol plus">+</span>
+      <span class="symbol minus">−</span>
+      <span class="symbol times">×</span>
+      <span class="symbol divide">÷</span>
+    </div>
     <div id="game-container">
       <div id="start-screen">
         <h1>Math Game</h1>
         <button id="start-btn" class="start-mathgameBTN">Start Game</button>
-        <br>
-        <button onclick="window.location.href='index.html'" class="start-mathgameBTN">Back to menu</button>
+        <br />
+        <button
+          onclick="window.location.href = 'index.html'"
+          class="start-mathgameBTN"
+        >
+          Back to menu
+        </button>
       </div>
-      <div id="main-game" class="maingameArea" style="display: none;">
+      <div id="main-game" class="maingameArea" style="display: none">
         <div id="status" class="status-container">
           <p>Level <span id="display-level">1</span></p>
           <p>Score <span id="display-score">0</span></p>
@@ -45,12 +56,16 @@
     </div>
     <script src="../javascript/mathgame.js"></script>
     <script>
-      document.getElementById('start-btn').addEventListener('click', function() {
-        document.getElementById('main-game').style.display = 'block';
-      });
-      document.getElementById('back-btn').addEventListener('click', function() {
-        window.location.href = 'index.html';
-      });
+      document
+        .getElementById("start-btn")
+        .addEventListener("click", function () {
+          document.getElementById("main-game").style.display = "block";
+        });
+      document
+        .getElementById("back-btn")
+        .addEventListener("click", function () {
+          window.location.href = "index.html";
+        });
     </script>
   </body>
 </html>

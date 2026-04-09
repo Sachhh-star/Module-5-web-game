@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-/* body */
 
 body {
   display: flex;
@@ -13,208 +15,326 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
 }
 
-/* start screen */
-#start-screen {
-  text-align: center;
-  border-radius: 15px;
-  width: 300px;
-  padding: 50px;
-  margin: 0 auto;
-  display: block;
-  background: linear-gradient(
-    90deg,
-    rgb(117, 102, 173) 0%,
-    rgb(108, 108, 192) 35%,
-    rgb(119, 219, 239) 100%
-  );
-  box-shadow: 6px 7px rgba(27, 27, 27, 0.301);
+.screen {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  max-width: 95vw;
+  min-height: 600px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(245, 203, 255, 0.4) 0%, rgba(255, 219, 239, 0.6) 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.4);
 }
 
-/* start game btn */
-#start-btn {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
-  font-family: "Bungee", sans-serif;
-  cursor: pointer;
-  transition:
-    transform 0.2s,
-    background-color 0.2s;
-}
-.main-btn:hover {
-  box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
-  transform: translateY(4px);
-}
-#start-screen h1 {
-  font-family: "Bungee", sans-serif;
-  text-shadow: 2px 4px rgba(255, 250, 250, 0.584);
-}
-#start-screen p {
-  font-family: "Bungee", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  text-shadow: 2px 2px rgba(255, 255, 255, 0.274);
-  margin-top: 10px;
-  margin-bottom: 15px;
-  text-align: center;
+.hidden {
+  display: none !important;
 }
 
-/* secondary-btn */
-.secondary-btn {
-  display: inline-block;
-  border: 30px;
-  border-radius: 12px;
-  padding: 15px;
-  margin-top: 20px;
-  box-shadow: 3px 3px rgba(91, 90, 90, 0.575);
-  font-family: "Bungee", sans-serif;
-  cursor: pointer;
-  transition:
-    transform 0.2s,
-    background-color 0.2s;
-}
-.secondary-btn:hover {
-  box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
-  transform: translateY(4px);
-}
-
-/* game-screen */
-#game-screen {
-  margin: auto;
-  justify-content: center;
-  /* text-align: center; */
-  padding: 50px;
-  border: 50px;
-  width: 300px;
-  background-color: aliceblue;
-  border-radius: 15px;
-  box-shadow: 6px 6px 10px rgba(56, 56, 57, 0.47);
-}
-#back-btn {
-  border: none;
-  padding: 12px 15px;
+/* --- BACK BUTTON --- */
+.icon-btn {
+  align-self: flex-start;
+  background: linear-gradient(180deg, #6fdcff, #298dff);
+  border: 2px solid #95d4ff;
   border-radius: 25px;
-  font-family: "Bungee", sans-serif;
-  background-color: rgb(252, 252, 252);
-  color: #333;
-  font-size: 1rem;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding: 8px 20px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition:
-    transform 0.6s,
-    background-color 0.5s;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.288);
+  box-shadow: 0 4px 0 #1b5ed7, 0 8px 15px rgba(0,0,0,0.15);
+  transition: transform 0.1s, box-shadow 0.1s;
   margin-bottom: 20px;
 }
-.icon-btn:hover {
-  box-shadow: 3px 4px rgba(68, 94, 117, 0.521);
+.icon-btn:active {
   transform: translateY(4px);
+  box-shadow: 0 0 0 #1b5ed7, 0 4px 5px rgba(0,0,0,0.1);
 }
 
-/* level-badge */
+/* --- HUD --- */
 .hud {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
   display: flex;
-  font-family: "Bungee", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-  border: none;
-  padding: 10px;
-  margin: 0;
-  background-color: #33333342;
-  border-radius: 2px;
-  gap: 10px;
-}
-
-/* timer-container */
-.timer-container {
-  margin-top: 5px;
-  font-family: "Bungee", sans-serif;
-}
-
-/* question-container */
-.question-container {
-  text-align: center;
-  border: 20px;
-  background-color: #35343467;
-  padding: 50px;
-  margin-top: 16px;
-  border-radius: 2px 20px;
-  box-shadow: 4px 5px rgba(72, 72, 71, 0.164);
-  font-family: "Changa One", sans-serif;
-  font-weight: 400;
-}
-/* answers-container */
-#answers-container {
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  justify-content: center;
-  border: 20px;
-  border-radius: 30px;
-  margin-top: 15px;
+  padding: 10px 15px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
   margin-bottom: 15px;
-  background-color: #bcbcbc62;
-  padding: 50px;
 }
-/* answer-btn */
-.answer-btn {
-  display: inline-block;
-  padding: 15px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 2px 2px rgb(37, 37, 37);
+.level-badge {
+  color: #c07a33;
+  text-transform: uppercase;
+}
+.lives-badge {
+  letter-spacing: 2px;
+}
+.score-badge {
+  color: #4a1f7c;
+  text-transform: uppercase;
 }
 
-/* feedback */
+/* --- TIMER --- */
+.timer-container {
+  margin-bottom: 20px;
+}
+.timer-text {
+  color: #ff3366;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.timer-bar-bg {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.timer-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff3366, #ff8c94);
+  width: 100%;
+  border-radius: 5px;
+  transition: width 1s linear;
+}
+
+/* --- QUESTION CONTAINER --- */
+.question-container {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(119, 74, 153, 0.1), inset 0 0 20px rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+#question-text {
+  color: #3f1a66;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* --- ANSWERS CONTAINER --- */
+.answers-grid {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 15px rgba(255,255,255,1), 0 5px 15px rgba(0,0,0,0.05);
+  border: 2px solid rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+}
+
+.answer-btn {
+  flex: 1;
+  height: 65px;
+  background: linear-gradient(180deg, #f0f8ff 0%, #cde8ff 100%);
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #4a1f7c;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #89bbf2, 0 8px 10px rgba(0,0,0,0.1);
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 0px 0 #89bbf2, 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.answer-btn.correct {
+  background: linear-gradient(180deg, #bdef8c 0%, #4caf50 100%) !important;
+  color: white !important;
+  box-shadow: 0 5px 0 #2e7d32, 0 8px 10px rgba(0,0,0,0.1) !important;
+  border: 2px solid #edffde !important;
+}
+
+.answer-btn.wrong {
+  background: linear-gradient(180deg, #ff8c94 0%, #fa3b71 100%) !important;
+  color: white !important;
+  box-shadow: 0 5px 0 #c21844, 0 8px 10px rgba(0,0,0,0.1) !important;
+  border: 2px solid #ffb3d9 !important;
+}
+
+/* --- FEEDBACK --- */
 .feedback {
   text-align: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(255,255,255,1), 0 5px 15px rgba(0,0,0,0.05);
+  border: 2px solid rgba(255,255,255,0.8);
+  min-height: 50px;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  font-family: "Luckiest Guy", cursive;
-  font-weight: 900;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-/* end-screen */
-#end-screen {
-  border: none;
-  background: linear-gradient(
-    87deg,
-    rgba(199, 202, 255, 1) 14%,
-    rgba(255, 194, 224, 1) 53%,
-    rgba(245, 186, 213, 1) 100%
-  );
-  width: 300px;
-  padding: 50px;
+.feedback.show {
+  opacity: 1;
+}
+.feedback.success {
+  color: #4caf50;
+}
+.feedback.error {
+  color: #fa3b71;
+}
+
+/* start and end screen */
+#start-screen, #end-screen {
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  box-shadow: 6px 6px rgba(86, 86, 85, 0.269);
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 900;
-  font-style: normal;
 }
-#end-title {
-  font-family: "Bungee", sans-serif;
+
+.logo {
+  color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 2px 4px 0 #b366ff, 0 10px 20px rgba(0,0,0,0.2);
+  margin-bottom: 5px;
+  line-height: 1.1;
+  -webkit-text-stroke: 1px #8019c9;
+}
+
+.screen p {
+  color: #4a1f7c;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.final-score {
+  font-size: 1.5rem;
+  color: #fa3b71;
+  margin-bottom: 10px;
+}
+
+.main-btn, .secondary-btn {
+  width: 100%;
+  max-width: 250px;
+  padding: 15px;
+  border-radius: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  transition: transform 0.1s, box-shadow 0.1s;
+  margin-bottom: 15px;
 }
 
 .main-btn {
-  display: inline-block;
-  border: 30px;
-  border-radius: 12px;
-  padding: 15px;
-  margin-top: 20px;
-  box-shadow: 3px 3px rgba(91, 90, 90, 0.575);
-  font-family: "Bungee", sans-serif;
-  cursor: pointer;
-  transition:
-    transform 0.2s,
-    background-color 0.2s;
+  background: linear-gradient(180deg, #6fdcff, #298dff);
+  color: white;
+  box-shadow: 0 6px 0 #1b5ed7, 0 10px 15px rgba(0,0,0,0.15);
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.2);
 }
-.hidden {
-  display: none !important;
+.main-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 #1b5ed7, 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.secondary-btn {
+  background: linear-gradient(180deg, #ffc977, #ff9800);
+  color: white;
+  box-shadow: 0 6px 0 #e65100, 0 10px 15px rgba(0,0,0,0.15);
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.2);
+}
+.secondary-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 #e65100, 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* animetion */
+.floating-math {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  pointer-events: none;
+  z-index: 2;
+}
+.floating-math .symbol {
+  position: absolute;
+  font-size: 2.3rem;
+  font-family: "Luckiest Guy", "Bungee", cursive, sans-serif;
+  opacity: 0.68;
+  animation: float-move 7s linear infinite;
+  user-select: none;
+  pointer-events: none;
+}
+.floating-math .plus {
+  left: 16vw;
+  animation-delay: 0s;
+  color: #a563ff;
+}
+.floating-math .minus {
+  left: 38vw;
+  animation-delay: 1.3s;
+  color: #ff8ff8;
+}
+.floating-math .times {
+  left: 65vw;
+  animation-delay: 2.3s;
+  color: #68bbfe;
+}
+.floating-math .divide {
+  left: 87vw;
+  animation-delay: 4s;
+  color: #fd7bd4;
+}
+
+@keyframes float-move {
+  0% {
+    top: -40px;
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.68;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) scale(1.2) rotate(24deg);
+    opacity: 0.59;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.2;
+  }
+  100% {
+    top: 110vh;
+    transform: translateY(0) scale(0.8) rotate(-18deg);
+    opacity: 0;
+  }
 }

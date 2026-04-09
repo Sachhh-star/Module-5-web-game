@@ -73,9 +73,9 @@ body {
   width: 240px;
   background: linear-gradient(
     90deg,
-    rgba(123, 194, 224, 1) 0%,
-    rgba(199, 255, 217, 1) 50%,
-    rgba(232, 232, 181, 1) 100%
+    rgba(123, 194, 224, 0.518) 0%,
+    rgba(199, 255, 217, 0.518) 50%,
+    rgba(232, 232, 181, 0.518) 100%
   );
   height: 240px;
   border-radius: 30px;
@@ -94,9 +94,9 @@ body {
 .game-card#card-tafel {
   background: linear-gradient(
     90deg,
-    rgba(123, 194, 224, 1) 0%,
-    rgba(199, 255, 217, 1) 50%,
-    rgba(232, 232, 181, 1) 100%
+    rgba(123, 194, 224, 0.518) 0%,
+    rgba(199, 255, 217, 0.518) 50%,
+    rgba(232, 232, 181, 0.518) 100%
   );
 }
 .game-card h1 {
