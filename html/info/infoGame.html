@@ -12,12 +12,12 @@
   </head>
   <body>
     <!-- animation thingy -_- -->
-    <!-- <div class="floating-math">
+    <div class="floating-math">
       <span class="symbol plus">+</span>
       <span class="symbol minus">−</span>
       <span class="symbol times">×</span>
       <span class="symbol divide">÷</span>
-    </div> -->
+    </div>
     <header>
       <div id="menu-bar" class="menu-concontainer">
         <div class="menuDisplay">
@@ -34,14 +34,28 @@
         Math Game <br />
         <span>Infomation</span>
       </h1>
-      <section>
-        <div class="into-card">
-          <h1 class="info-title">Mini Math Game</h1>
-          <p class="info-text">
-            Welcome to the <strong>Mini Math Game</strong>! <br />
-            <span>
+      <section id="info-section" class="info-section">
+        <div class="info-card">
+          <h1
+            class="info-title"
+            style="
+              animation: fadeInMove 1.2s cubic-bezier(0.26, 1.46, 0.77, 0.85) 0s both;
+            "
+          >
+            Math Game
+          </h1>
+          <p
+            class="info-text"
+            style="
+              animation: fadeInMove 1.5s cubic-bezier(0.26, 1.46, 0.77, 0.85) 0.12s both;
+            "
+          >
+            Welcome to the <strong>Math Game</strong>! <br />
+            <span
+              style="display: inline-block; animation: textFloat 2.3s ease 0.7s both;"
+            >
               This project is an interactive game where you solve math problems,
-              earn points, and level up - all while racing against a timer.
+              earn points, and level up &ndash; all while racing against a timer.
             </span>
             <br />
             <span>
@@ -53,25 +67,28 @@
         </div>
 
         <div class="info-card">
-          <h2 class="info-subtitle">How Does It Work?</h2>
+          <h2
+            class="info-subtitle"
+            style="animation: fadeInMove 1.3s cubic-bezier(0.24, 1.7, 0.89, 0.97) 0.18s both;"
+          >
+            How Does It Work?
+          </h2>
           <ul class="info-list">
             <li>
               <span>➜</span>
-              Solve random math questions with operators like
-              <strong>+</strong>, <strong>-</strong>, <strong>×</strong>, and
-              <strong>÷</strong>.
+              <strong>Solve random math questions with operators like +, −, ×, and ÷.</strong>
             </li>
             <li>
               <span>⌛</span>
-              Type in your answer before the timer runs out.
+              <strong>Type in your answer before the timer runs out.</strong>
             </li>
             <li>
               <span>⭐</span>
-              Earn points with every correct answer and unlock new levels.
+              <strong>Earn points with every correct answer and unlock new levels.</strong>
             </li>
             <li>
               <span>🚀</span>
-              The questions get harder as you progress!
+              <strong>The questions get harder as you progress!</strong>
             </li>
             <li>
               <span>💡</span>
@@ -85,7 +102,12 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <p>
+        Die Mini Math Game is een project van module 5 JavaScript opdracht. Bij
+        Beam Chaipotha
+      </p>
+    </footer>
 
     <script id="info_medule" src="/html/info/infoScript/InfoScript.js"></script>
   </body>

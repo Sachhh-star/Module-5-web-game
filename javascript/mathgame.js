@@ -43,7 +43,7 @@ function startGame() {
 let currentCorrectAnswer;
 
 function generateQuestion() {
-    // Increase difficulty based on the level
+    // increase difficulty based on the level
     let maxNumber = 10 + (10 * level);
     
     let operators = ["+", "-", "*", "/"];
@@ -68,7 +68,7 @@ function generateQuestion() {
     num2.innerHTML = n2;
     operator.innerHTML = op;
     
-    // Pre-calculate correct answer
+    // correct answer
     switch (op) {
         case "+": currentCorrectAnswer = n1 + n2; break;
         case "-": currentCorrectAnswer = n1 - n2; break;
@@ -87,7 +87,7 @@ function generateQuestion() {
 
 submitBtn.addEventListener("click", checkAnswer);
 
-// Update result box as user types
+// update result box 
 answerInput.addEventListener("input", function() {
     resultBox.innerHTML = answerInput.value;
 });

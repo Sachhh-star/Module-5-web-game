@@ -230,3 +230,66 @@ body {
   margin: auto;
   margin-top: 30px;
 }
+/* animetion */
+.floating-math {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  pointer-events: none;
+  z-index: 2;
+}
+.floating-math .symbol {
+  position: absolute;
+  font-size: 2.3rem;
+  font-family: "Luckiest Guy", "Bungee", cursive, sans-serif;
+  opacity: 0.68;
+  animation: float-move 7s linear infinite;
+  user-select: none;
+  pointer-events: none;
+}
+.floating-math .plus {
+  left: 16vw;
+  animation-delay: 0s;
+  color: #a563ff;
+}
+.floating-math .minus {
+  left: 38vw;
+  animation-delay: 1.3s;
+  color: #ff8ff8;
+}
+.floating-math .times {
+  left: 65vw;
+  animation-delay: 2.3s;
+  color: #68bbfe;
+}
+.floating-math .divide {
+  left: 87vw;
+  animation-delay: 4s;
+  color: #fd7bd4;
+}
+@keyframes float-move {
+  0% {
+    top: -40px;
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.68;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) scale(1.2) rotate(24deg);
+    opacity: 0.59;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.2;
+  }
+  100% {
+    top: 110vh;
+    transform: translateY(0) scale(0.8) rotate(-18deg);
+    opacity: 0;
+  }
+}
