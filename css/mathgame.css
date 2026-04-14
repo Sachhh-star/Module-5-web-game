@@ -355,3 +355,31 @@ button[onclick="window.location.href='index.html'"]:active {
     opacity: 0;
   }
 }
+
+/* Reset Button */
+#reset-btn {
+  background: linear-gradient(180deg, #ff7b9f, #ff3366);
+  border: 2px solid #ffb3c6;
+  border-radius: 15px;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #cc0033,
+    0 8px 15px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+  width: 100%;
+}
+#reset-btn:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 0 0 #cc0033,
+    0 4px 5px rgba(0, 0, 0, 0.1);
+}

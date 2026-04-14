@@ -9,6 +9,10 @@ let gamearea = document.getElementById("game-area");
 let displaytimer = document.getElementById("display-timer");
 let displayback = document.getElementById("display-back");
 let feedbackMsg = document.getElementById("feedback-msg");
+let resetBtn = document.getElementById("reset-btn");
+
+// reset button event listener
+resetBtn.addEventListener("click", resetGame);
 
 
 
@@ -44,7 +48,7 @@ let currentCorrectAnswer;
 
 function generateQuestion() {
     // increase difficulty based on the level
-    let maxNumber = 10 + (10 * level);
+    let maxNumber = 10 * level;
     
     let operators = ["+", "-", "*", "/"];
     let op = operators[Math.floor(Math.random() * operators.length)];
@@ -63,7 +67,61 @@ function generateQuestion() {
         let ans = Math.floor(Math.random() * (maxNumber / 2)) + 1;
         n1 = ans * n2;
     }
+
+    // question generation logic based on level :3
     
+    if (level === 1) {
+        maxNumber = 10 * level;
+        n1 = Math.floor(Math.random() * maxNumber) + 1;
+        n2 = Math.floor(Math.random() * maxNumber) + 1;
+        op = ["+", "-"][Math.floor(Math.random() * 2)];
+        let temp;
+        if (op === "-" && n1 < n2) {
+            temp = n1;
+            n1 = n2;
+            n2 = temp;
+        }
+    }else if (level === 2 || level === 3 || level === 4 || level === 5) {
+        maxNumber = 10 * level;
+        n1 = Math.floor(Math.random() * maxNumber) + 1;
+        n2 = Math.floor(Math.random() * maxNumber) + 1;
+        op = ["+", "-",][Math.floor(Math.random() * 2)];
+        let temp;
+        if (op === "-" && n1 < n2) {
+            temp = n1;
+            n1 = n2;
+            n2 = temp;
+        }
+    } else if (level >= 6 || level === 7) {
+        maxNumber = 10 * level;
+        n1 = Math.floor(Math.random() * maxNumber) + 1;
+        n2 = Math.floor(Math.random() * maxNumber) + 1;
+        op = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+        let temp;
+        if (op === "-" && n1 < n2) {
+            temp = n1;
+            n1 = n2;
+            n2 = temp;
+        } else if (op === "/") {
+            let ans = Math.floor(Math.random() * (maxNumber / 2)) + 1;
+            n1 = ans * n2;
+        }
+    }else {
+        maxNumber = 15 * level;
+        n1 = Math.floor(Math.random() * maxNumber) + 1;
+        n2 = Math.floor(Math.random() * maxNumber) + 1;
+        op = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+        let temp;
+        if (op === "-" && n1 < n2) {
+            temp = n1;
+            n1 = n2;
+            n2 = temp;
+        } else if (op === "/") {
+            let ans = Math.floor(Math.random() * (maxNumber / 2)) + 1;
+            n1 = ans * n2;
+        }
+    }
+
     num1.innerHTML = n1;
     num2.innerHTML = n2;
     operator.innerHTML = op;
@@ -121,9 +179,10 @@ function checkAnswer() {
             feedbackMsg.innerHTML = "Level Up! Welcome to level " + level;
             feedbackMsg.style.color = "gold";
         }
+        saveLevel(); // Save local storage when getting points/leveling up
     } else {
         feedbackMsg.innerHTML = "Wrong! The right answer was " + currentCorrectAnswer;
-        feedbackMsg.style.color = "white";
+        feedbackMsg.style.color = "red";
     }   
     displayscore.innerHTML = score;
     displaylevel.innerHTML = level;
@@ -134,7 +193,7 @@ function checkAnswer() {
         isChecking = false;
         generateQuestion();
         feedbackMsg.innerHTML = "";
-    }, 1500);
+    }, 3000);
 }
 
 // timer function
@@ -151,24 +210,60 @@ function countdown() {
             isChecking = false;
             generateQuestion();
             feedbackMsg.innerHTML = "";
-        }, 1500);
+        }, 3000);
     }
 }
 
 // reset game
 function resetGame() {
+    // Immediately stop the timer to prevent time's up bugs
     clearInterval(timerInterval);
+
+    // save old stats to display :x
+    let oldLevel = level;
+    let oldScore = score;
+
+    // reset stats
     score = 0;
     level = 1;
     correctAnswersInLevel = 0;
     timeSecounds = 30;
     timer.innerHTML = timeSecounds;
     updateDisplay();
-    startScreen.style.display = "block";
+    
+    startScreen.style.display = "flex";
     gamearea.style.display = "none";
+    document.getElementById("main-game").style.display = "none";
+    
+    saveLevel(); // Ensure local storage resets as well
 }
 // update score and level display
 function updateDisplay() {
     displayscore.innerHTML = score;
     displaylevel.innerHTML = level;
+}
+
+// level save (local storage)
+function saveLevel() {
+    const levelToSave = level;
+    const scoreToSave = score;
+    localStorage.setItem("mathGameLevel", levelToSave);
+    localStorage.setItem("mathGameScore", scoreToSave);
+} 
+function loadLevel() {
+    const savedLevel = localStorage.getItem("mathGameLevel");
+    const savedScore = localStorage.getItem("mathGameScore");
+    if (savedLevel) {
+        level = parseInt(savedLevel);
+        displaylevel.innerHTML = level;
+    }
+    if (savedScore) {
+        score = parseInt(savedScore);
+        displayscore.innerHTML = score;
+    }
+}
+
+// initialize game
+window.onload = function() {
+    loadLevel();
 }

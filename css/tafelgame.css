@@ -90,7 +90,7 @@ body {
   margin-bottom: 20px;
 }
 .timer-text {
-  color: #ff3366;
+  color: #c72e54;
   font-weight: 900;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -104,7 +104,7 @@ body {
 }
 .timer-bar {
   height: 100%;
-  background: linear-gradient(90deg, #ff3366, #ff8c94);
+  background: linear-gradient(90deg, #c20d37, #ed7c83);
   width: 100%;
   border-radius: 5px;
   transition: width 1s linear;
