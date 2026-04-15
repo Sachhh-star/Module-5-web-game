@@ -335,3 +335,22 @@ function winGame() {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// --- Global Button Click Sound ---
+function playClickSound() {
+  try {
+    const audio = new Audio("/assets/sound/clicksound.wav");
+    let playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(e => console.log("Can't play click:", e));
+    }
+  } catch(e) {
+    console.log("Audio Error:", e);
+  }
+}
+
+document.addEventListener('click', function(event) {
+  if (event.target.tagName && event.target.tagName.toLowerCase() === 'button' || event.target.closest('button')) {
+    playClickSound();
+  }
+});
