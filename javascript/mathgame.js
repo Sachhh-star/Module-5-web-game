@@ -142,6 +142,7 @@ function generateQuestion() {
 
   answerInput.value = "";
   resultBox.innerHTML = "";
+  feedbackMsg.innerHTML = "";
 
   clearInterval(timerInterval);
   stopTimer(); // Ensure previous sound is cut off
@@ -164,6 +165,7 @@ answerInput.addEventListener("keypress", function (event) {
 });
 
 let isChecking = false;
+let feedbackTimeout;
 
 // check answer
 function checkAnswer() {
@@ -204,10 +206,11 @@ function checkAnswer() {
     displayscore.innerHTML = score;
     saveLevel(); 
 
-    setTimeout(() => {
+    clearTimeout(feedbackTimeout);
+    feedbackTimeout = setTimeout(() => {
       isChecking = false;
       resetGame();
-    }, 3000);
+    }, 2000);
     return;
   } else {
     saveLevel(); // save after each answer
@@ -218,11 +221,11 @@ function checkAnswer() {
   answerInput.value = "";
   resultBox.innerHTML = "";
 
-  setTimeout(() => {
+  clearTimeout(feedbackTimeout);
+  feedbackTimeout = setTimeout(() => {
     isChecking = false;
     generateQuestion();
-    feedbackMsg.innerHTML = "";
-  }, 3000);
+  }, 2000);
 }
 
 // timer function
@@ -236,11 +239,11 @@ function countdown() {
     isChecking = true;
     feedbackMsg.innerHTML = "Time's up! The answer was " + currentCorrectAnswer;
     feedbackMsg.style.color = "red";
-    setTimeout(() => {
+    clearTimeout(feedbackTimeout);
+    feedbackTimeout = setTimeout(() => {
       isChecking = false;
       generateQuestion();
-      feedbackMsg.innerHTML = "";
-    }, 3000);
+    }, 2000);
   }
 
   // BUG FIX: use timeSecounds, not timer! (timer is the DOM element)
@@ -261,6 +264,7 @@ function stopTimer() {
 
 // reset game
 function resetGame() {
+  clearTimeout(feedbackTimeout);
   // Immediately stop the timer to prevent time's up bugs
   clearInterval(timerInterval);
   stopTimer(); // Stop playing the current song!
@@ -276,6 +280,9 @@ function resetGame() {
   timeSecounds = 30;
   timer.innerHTML = timeSecounds;
   updateDisplay();
+
+  feedbackMsg.innerHTML = "";
+  isChecking = false;
 
   startScreen.style.display = "flex";
   gamearea.style.display = "none";

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url(/img/main-bg.jpg);
+  background-image: url(/img/bg5.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body {
   display: flex;
   /* align-items: center;
   justify-content: center; */
-  background-color: rgba(231, 229, 229, 0.434);
+  background-color: rgba(243, 232, 210, 0.578);
   border-radius: 0 0 15px 15px;
   font-family: "Bungee", sans-serif;
   font-weight: 250;
@@ -62,6 +62,7 @@ body {
   flex-wrap: wrap;
   margin-top: 60px;
   padding-bottom: 50px;
+  /* background-image: url(/img/math.png); */
 }
 .game-card {
   display: flex;
@@ -71,19 +72,20 @@ body {
   text-align: center;
   padding: 30px;
   width: 240px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     rgba(123, 194, 224, 0.518) 0%,
     rgba(199, 255, 217, 0.518) 50%,
     rgba(232, 232, 181, 0.518) 100%
-  );
+  ); */
+
   height: 240px;
   border-radius: 30px;
   box-shadow: 0 10px 20px rgba(54, 54, 54, 0.66);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  /* color: #1a2c3a; */
   /* border: 4px solid rgba(63, 59, 59, 0.555); */
 }
 .game-card:hover {
@@ -92,12 +94,23 @@ body {
   border-color: rgba(255, 255, 255, 0.6);
 }
 .game-card#card-tafel {
-  background: linear-gradient(
-    90deg,
-    rgba(123, 194, 224, 0.518) 0%,
-    rgba(199, 255, 217, 0.518) 50%,
-    rgba(232, 232, 181, 0.518) 100%
-  );
+  background-image: url(/img/bg6.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#card-tafel h1 {
+  color: #430749;
+  text-shadow: 3px 3px rgba(131, 129, 126, 0.429);
+  /* background: linear-gradient(
+    180deg,
+    rgba(199, 202, 255, 0.361) 14%,
+    rgba(245, 186, 213, 0.361) 100%
+    
+  ); */
+  /* background-color: #e3cbf84a; */
+  border-radius: 5px;
+  padding: 30px;
 }
 .game-card h1 {
   font-family: "Changa One", sans-serif;
@@ -127,6 +140,21 @@ body {
   background-color: #f8f8f8;
 }
 
+/* bg */
+#card-math {
+  background-image: url(/img/bg7.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#card-math h1 {
+  color: #3e0556;
+  text-shadow: 3px 3px rgb(233, 227, 216);
+  /* background-color: #f8f8f88b; */
+  padding: 15px;
+  border-radius: 20px;
+}
 .container h1 {
   font-family: "Bungee", sans-serif;
   font-weight: 400;

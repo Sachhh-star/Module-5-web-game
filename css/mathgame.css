@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url(/img/main-bg.jpg);
+  background-image: url(/img/bg5.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,18 +25,14 @@ body {
   max-width: 95vw;
   min-height: 600px;
   border-radius: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(245, 203, 255, 0.4) 0%,
-    rgba(255, 219, 239, 0.6) 100%
-  );
+  background: rgba(255, 255, 255, 0.25);
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.1),
-    inset 0 0 20px rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
   padding: 30px 20px;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   text-align: center;
 }
 
@@ -50,15 +46,14 @@ body {
 
 #start-screen h1 {
   color: #ffffff;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
-  text-transform: uppercase;
   text-shadow:
-    2px 4px 0 #b366ff,
-    0 10px 20px rgba(0, 0, 0, 0.2);
+    2px 3px 0 #d4a373,
+    0 8px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
   line-height: 1.1;
-  -webkit-text-stroke: 1px #8019c9;
+  letter-spacing: 2px;
 }
 
 .start-mathgameBTN {
@@ -69,38 +64,38 @@ body {
   font-family: "Nunito", sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
-  text-transform: uppercase;
   cursor: pointer;
   border: 2px solid #ffffff;
   transition:
     transform 0.1s,
     box-shadow 0.1s;
-  background: linear-gradient(180deg, #bdef8c 0%, #4caf50 100%);
-  color: white;
+  background: rgba(255, 255, 255, 0.8);
+  color: #7d5a5a;
   box-shadow:
-    0 6px 0 #2e7d32,
-    0 10px 15px rgba(0, 0, 0, 0.15);
-  text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.2);
+    0 6px 0 rgba(255, 255, 255, 0.5),
+    0 10px 15px rgba(0, 0, 0, 0.1);
   margin: 10px auto;
+  backdrop-filter: blur(5px);
 }
 .start-mathgameBTN:active {
   transform: translateY(6px);
   box-shadow:
-    0 0 0 #2e7d32,
-    0 5px 10px rgba(0, 0, 0, 0.1);
+    0 0 0 rgba(255, 255, 255, 0.5),
+    0 5px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Back to menu button in Start Screen */
 button[onclick="window.location.href='index.html'"] {
-  background: linear-gradient(180deg, #ffc977 0%, #ff9800 100%);
+  background: rgba(255, 255, 255, 0.6);
+  color: #d4a373;
   box-shadow:
-    0 6px 0 #e65100,
-    0 10px 15px rgba(0, 0, 0, 0.15);
+    0 6px 0 rgba(255, 255, 255, 0.4),
+    0 10px 15px rgba(0, 0, 0, 0.1);
 }
 button[onclick="window.location.href='index.html'"]:active {
   box-shadow:
-    0 0 0 #e65100,
-    0 5px 10px rgba(0, 0, 0, 0.1);
+    0 0 0 rgba(255, 255, 255, 0.4),
+    0 5px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* --- MAIN GAME --- */
@@ -116,11 +111,10 @@ button[onclick="window.location.href='index.html'"]:active {
   font-size: 1.2rem;
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
   margin-bottom: 20px;
-  color: #4a1f7c;
-  text-transform: uppercase;
+  color: #7d5a5a;
 }
 #status span {
-  color: #c07a33;
+  color: #d4a373;
 }
 
 /* Timer */
@@ -131,8 +125,7 @@ button[onclick="window.location.href='index.html'"]:active {
   margin-bottom: 20px;
   font-weight: 900;
   font-size: 1.2rem;
-  color: #ff3366;
-  text-transform: uppercase;
+  color: #ff6b81;
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
@@ -228,18 +221,17 @@ button[onclick="window.location.href='index.html'"]:active {
 #submit-btn {
   width: 100%;
   height: 55px;
-  background: linear-gradient(180deg, #6fdcff, #298dff);
-  border: 2px solid #95d4ff;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #ffffff;
   border-radius: 15px;
-  color: white;
+  color: #7d5a5a;
   font-family: "Nunito", sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
-  text-transform: uppercase;
   cursor: pointer;
   box-shadow:
-    0 5px 0 #1b5ed7,
-    0 8px 15px rgba(0, 0, 0, 0.15);
+    0 5px 0 rgba(255, 255, 255, 0.5),
+    0 8px 15px rgba(0, 0, 0, 0.1);
   transition:
     transform 0.1s,
     box-shadow 0.1s;
@@ -247,8 +239,8 @@ button[onclick="window.location.href='index.html'"]:active {
 #submit-btn:active {
   transform: translateY(5px);
   box-shadow:
-    0 0 0 #1b5ed7,
-    0 3px 5px rgba(0, 0, 0, 0.1);
+    0 0 0 rgba(255, 255, 255, 0.5),
+    0 3px 5px rgba(0, 0, 0, 0.05);
 }
 
 #feedback-msg {
@@ -266,19 +258,18 @@ button[onclick="window.location.href='index.html'"]:active {
   margin-top: auto;
 }
 #back-btn {
-  background: linear-gradient(180deg, #ffc977, #ff9800);
-  border: 2px solid #ffe4b3;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #ffffff;
   border-radius: 15px;
-  color: white;
+  color: #d4a373;
   font-family: "Nunito", sans-serif;
   font-weight: 900;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 12px 25px;
-  text-transform: uppercase;
   cursor: pointer;
   box-shadow:
-    0 4px 0 #e65100,
-    0 8px 15px rgba(0, 0, 0, 0.15);
+    0 4px 0 rgba(255, 255, 255, 0.5),
+    0 8px 15px rgba(0, 0, 0, 0.1);
   transition:
     transform 0.1s,
     box-shadow 0.1s;
@@ -287,8 +278,8 @@ button[onclick="window.location.href='index.html'"]:active {
 #back-btn:active {
   transform: translateY(4px);
   box-shadow:
-    0 0 0 #e65100,
-    0 4px 5px rgba(0, 0, 0, 0.1);
+    0 0 0 rgba(255, 255, 255, 0.5),
+    0 4px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* animetion */
@@ -358,20 +349,19 @@ button[onclick="window.location.href='index.html'"]:active {
 
 /* Reset Button */
 #reset-btn {
-  background: linear-gradient(180deg, #ff7b9f, #ff3366);
-  border: 2px solid #ffb3c6;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #ffffff;
   border-radius: 15px;
-  color: white;
+  color: #ff6b81;
   font-family: "Nunito", sans-serif;
   font-weight: 900;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 12px 25px;
   margin-top: 10px;
-  text-transform: uppercase;
   cursor: pointer;
   box-shadow:
-    0 4px 0 #cc0033,
-    0 8px 15px rgba(0, 0, 0, 0.15);
+    0 4px 0 rgba(255, 255, 255, 0.5),
+    0 8px 15px rgba(0, 0, 0, 0.1);
   transition:
     transform 0.1s,
     box-shadow 0.1s;
@@ -380,6 +370,6 @@ button[onclick="window.location.href='index.html'"]:active {
 #reset-btn:active {
   transform: translateY(4px);
   box-shadow:
-    0 0 0 #cc0033,
-    0 4px 5px rgba(0, 0, 0, 0.1);
+    0 0 0 rgba(255, 255, 255, 0.5),
+    0 4px 5px rgba(0, 0, 0, 0.05);
 }
